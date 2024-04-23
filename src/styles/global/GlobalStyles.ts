@@ -1,6 +1,6 @@
 // # Global styles (CSS, fonts, etc.)
 import { createGlobalStyle } from 'styled-components'
-import { media, theme } from '../theme/theme'
+import { theme } from '../theme/theme'
 
 export const GlobalStyles = createGlobalStyle`
     * {
@@ -268,7 +268,7 @@ export const GlobalStyles = createGlobalStyle`
         font-size: ${theme.typography.fontSize.xlarge}!important;
     }
 
-    ${media.lg`
+    @media (max-width: ${theme.breakpoints.lg}) {
         .text-xs{
             font-size: ${theme.typography.fontSize.xxsmall}!important;
         }
@@ -284,52 +284,37 @@ export const GlobalStyles = createGlobalStyle`
         .text-xl{
             font-size: ${theme.typography.fontSize.large}!important;
         }
-    `}
-
-    ${media.lg`
-        .text-sm{
-            font-size: ${theme.typography.fontSize.xxsmall}!important;
-        }
-        .text-md{
-            font-size: ${theme.typography.fontSize.xsmall}!important;
-        }
-        .text-lg{
-            font-size: ${theme.typography.fontSize.small}!important;
-        }
-        .text-xl{
-            font-size: ${theme.typography.fontSize.medium}!important;
-        }
-    `}
+    }
 
     .section-py{
         padding: 60px 0;
 
-        ${media.xxl`
+        @media (max-width: ${theme.breakpoints.xxl}) {
             padding: 50px 0;
-        `}
+        }
 
-        ${media.lg`
+        @media (max-width: ${theme.breakpoints.lg}) {
             padding: 40px 0;
-        `}
+        }
 
-        ${media.sm`
+        @media (max-width: ${theme.breakpoints.sm}) {
             padding: 30px 0;
-        `}
+        }
 
-        ${media.xs`
+        @media (max-width: ${theme.breakpoints.xs}) {
             padding: 20px 0;
-        `}
+        }
     }
 
     .top-spacing-fix{
         margin-top: 120px;
 
-        ${media.lg`
+        @media (max-width: ${theme.breakpoints.lg}) {
             margin-top: 100px;
-        `}
+        }
 
-        ${media.sm`
+        @media (max-width: ${theme.breakpoints.sm}) {
             margin-top: 80px;
-        `}
+        }
     }
 `
