@@ -2,6 +2,7 @@ import { BaseLayout } from '../components'
 import routeConstants from '../constant/routeConstants'
 import {
   HomeScreen,
+  PageNotFound,
   SearchScreen,
   ShowDetailScreen,
   ShowsScreen
@@ -27,6 +28,10 @@ export const routes = [
       {
         path: routeConstants.SEARCH,
         element: <SearchScreen />
+      },
+      {
+        path: '*',
+        element: <PageNotFound />
       }
     ]
   }
