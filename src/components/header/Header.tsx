@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { Icons } from '../../assets/icons'
 import { Images } from '../../assets/images'
 import routeConstants from '../../constant/routeConstants'
+import { useHeaderBg } from '../../hooks/useHeaderBg'
 import { Container } from '../../styles/global/default'
 import {
   BrandWrapper,
@@ -13,9 +14,12 @@ import {
 
 export const Header: FC = () => {
   const location = useLocation()
+  const scrollThreshold = 0
+  const hasBackground = useHeaderBg(scrollThreshold)
+  const headerStyle = hasBackground ? 'bg-black06 sm-header' : 'bg-transparent'
 
   return (
-    <HeaderWrapper className={'flex items-center'}>
+    <HeaderWrapper className={'flex items-center' + ` ${headerStyle}`}>
       <Container className={'w-full'}>
         <div className={'header-content flex items-center justify-between'}>
           <BrandWrapper to={routeConstants.HOME}>

@@ -45,6 +45,11 @@ export const BrandWrapper = styled(Link)`
     width: 160px;
     min-width: 160px;
   }
+
+  @media (max-width: ${theme.breakpoints.xs}) {
+    width: 140px;
+    min-width: 140px;
+  }
 `
 export const NavWrapper = styled.nav`
   position: relative;
@@ -135,4 +140,34 @@ export const NavWrapper = styled.nav`
 `
 export const HeaderIconsWrapper = styled.div`
   column-gap: 16px;
+
+  .icon-link {
+    width: 30px;
+    min-width: 30px;
+    height: 30px;
+    padding: 4px;
+    background: transparent;
+
+    @media (max-width: ${theme.breakpoints.lg}) {
+      width: 26px;
+      min-width: 26px;
+      height: 26px;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &.sidebar-open-btn {
+      display: none;
+
+      @media (max-width: ${theme.breakpoints.lg}) {
+        display: inline-flex;
+      }
+    }
+  }
 `
