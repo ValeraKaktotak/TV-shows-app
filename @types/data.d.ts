@@ -1,1 +1,1 @@
-
+/// <reference types="redux-persist" />

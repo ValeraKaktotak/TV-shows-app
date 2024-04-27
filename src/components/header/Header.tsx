@@ -1,9 +1,16 @@
 import type { FC } from 'react'
+import { useSelector } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
 import { Icons } from '../../assets/icons'
 import { Images } from '../../assets/images'
 import routeConstants from '../../constant/routeConstants'
 import { useHeaderBg } from '../../hooks/useHeaderBg'
+import {
+  closeSidebar,
+  openSidebar,
+  selectIsSidebarOpen
+} from '../../redux/slices/sidebarSlice'
+import { useAppDispatch } from '../../redux/store'
 import { Container } from '../../styles/global/default'
 import {
   BrandWrapper,
@@ -14,6 +21,9 @@ import {
 
 export const Header: FC = () => {
   const location = useLocation()
+  const dispatch = useAppDispatch()
+  const isSidebarOpen = useSelector(selectIsSidebarOpen)
+
   const scrollThreshold = 0
   const hasBackground = useHeaderBg(scrollThreshold)
   const headerStyle = hasBackground ? 'bg-black06 sm-header' : 'bg-transparent'
@@ -25,8 +35,17 @@ export const Header: FC = () => {
           <BrandWrapper to={routeConstants.HOME}>
             <img src={Images.Logo} alt='site Logo' />
           </BrandWrapper>
-          <NavWrapper className={'flex items-center justify-center'}>
-            <button type='button' className={'sidebar-close-btn'}>
+          <NavWrapper
+            className={
+              'flex items-center justify-center' +
+              ` ${isSidebarOpen ? 'show' : ''}`
+            }
+          >
+            <button
+              type='button'
+              className={'sidebar-close-btn'}
+              onClick={() => dispatch(closeSidebar())}
+            >
               <img src={Icons.Close} alt='Close Icon' />
             </button>
             <ul className={'nav-list flex items-center justify-center'}>
@@ -94,6 +113,9 @@ export const Header: FC = () => {
               className={
                 'icon-link flex items-center justify-center sidebar-open-btn'
               }
+              onClick={() => {
+                dispatch(openSidebar())
+              }}
             >
               <img src={Icons.Menu} alt='Menu Icon' />
             </button>
