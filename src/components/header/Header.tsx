@@ -1,4 +1,4 @@
-import type { FC } from 'react'
+import { useEffect, useRef, type FC } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
 import { Icons } from '../../assets/icons'
@@ -28,6 +28,42 @@ export const Header: FC = () => {
   const hasBackground = useHeaderBg(scrollThreshold)
   const headerStyle = hasBackground ? 'bg-black06 sm-header' : 'bg-transparent'
 
+  // click out of our component
+  const navRef = useRef<HTMLDivElement>(null)
+  const handleNavClose = (event: MouseEvent): void => {
+    if (
+      navRef?.current &&
+      !navRef.current.contains(event.target as Node) &&
+      !isDescendantOf(event.target as HTMLElement, 'sidebar-open-btn')
+    ) {
+      dispatch(closeSidebar())
+    }
+  }
+
+  // check all parent components
+  const isDescendantOf = (element: HTMLElement, className: string) => {
+    let currentElement: HTMLElement | null = element
+    while (
+      currentElement !== null &&
+      !currentElement?.classList?.contains(className)
+    ) {
+      currentElement = currentElement.parentNode as HTMLElement | null
+    }
+    return currentElement?.classList?.contains(className) ?? false
+  }
+
+  useEffect(() => {
+    document.body.addEventListener('click', handleNavClose)
+    return () => {
+      document.body.removeEventListener('click', handleNavClose)
+    }
+  }, [])
+
+  // auto close on link click
+  const handleNavLinkClick = () => {
+    dispatch(closeSidebar())
+  }
+
   return (
     <HeaderWrapper className={'flex items-center' + ` ${headerStyle}`}>
       <Container className={'w-full'}>
@@ -36,6 +72,7 @@ export const Header: FC = () => {
             <img src={Images.Logo} alt='site Logo' />
           </BrandWrapper>
           <NavWrapper
+            ref={navRef}
             className={
               'flex items-center justify-center' +
               ` ${isSidebarOpen ? 'show' : ''}`
@@ -51,6 +88,7 @@ export const Header: FC = () => {
             <ul className={'nav-list flex items-center justify-center'}>
               <li className={'nav-item'}>
                 <Link
+                  onClick={handleNavLinkClick}
                   to={routeConstants.HOME}
                   className={
                     'nav-link inline-flex items-center justify-center text-center' +
@@ -62,6 +100,7 @@ export const Header: FC = () => {
               </li>
               <li className={'nav-item'}>
                 <Link
+                  onClick={handleNavLinkClick}
                   to={routeConstants.SHOWS}
                   className={
                     'nav-link inline-flex items-center justify-center text-center' +
@@ -73,6 +112,7 @@ export const Header: FC = () => {
               </li>
               <li className={'nav-item'}>
                 <Link
+                  onClick={handleNavLinkClick}
                   to='/support'
                   className={
                     'nav-link inline-flex items-center justify-center text-center' +
@@ -84,6 +124,7 @@ export const Header: FC = () => {
               </li>
               <li className={'nav-item'}>
                 <Link
+                  onClick={handleNavLinkClick}
                   to='/subscription'
                   className={
                     'nav-link inline-flex items-center justify-center text-center' +
