@@ -33,15 +33,15 @@ export const Header: FC = () => {
   const handleNavClose = (event: MouseEvent): void => {
     if (
       navRef?.current &&
-      !navRef.current.contains(event.target as Node) &&
-      !isDescendantOf(event.target as HTMLElement, 'sidebar-open-btn')
+      !navRef.current.contains(event.target as HTMLElement) &&
+      !isChildOf(event.target as HTMLElement, 'sidebar-open-btn')
     ) {
       dispatch(closeSidebar())
     }
   }
 
   // check all parent components
-  const isDescendantOf = (element: HTMLElement, className: string) => {
+  const isChildOf = (element: HTMLElement, className: string) => {
     let currentElement: HTMLElement | null = element
     while (
       currentElement !== null &&
@@ -81,7 +81,9 @@ export const Header: FC = () => {
             <button
               type='button'
               className={'sidebar-close-btn'}
-              onClick={() => dispatch(closeSidebar())}
+              onClick={() => {
+                dispatch(closeSidebar())
+              }}
             >
               <img src={Icons.Close} alt='Close Icon' />
             </button>
