@@ -1,10 +1,12 @@
 import type { FC } from 'react'
+import { Link } from 'react-router-dom'
 import { FOOTER_LINKS } from '../../constant/mockData'
-import { Container } from '../../styles/global/default'
+import { Container, Paragraph, Text } from '../../styles/global/default'
 import { FooterWrapper } from './Footer.styles'
 import { FooterItem } from './FooterItem/FooterItem'
 
 export const Footer: FC = () => {
+  const currentYear = new Date()
   return (
     <FooterWrapper>
       <Container>
@@ -14,6 +16,28 @@ export const Footer: FC = () => {
               return <FooterItem key={footerLink.id} data={footerLink} />
             })}
           </div>
+        </div>
+        <div className='footer-bottom flex items-center justify-between'>
+          <Paragraph className='copyright-text'>
+            &copy; {currentYear.getFullYear()} Stream Vibe. All Rights Reserved.
+          </Paragraph>
+          <ul className='flex items-center flex-wrap bottom-links'>
+            <li>
+              <Link to='/' className='bottom-link'>
+                <Text>Terms of use</Text>
+              </Link>
+            </li>
+            <li>
+              <Link to='/' className='bottom-link'>
+                <Text>Privacy Policy</Text>
+              </Link>
+            </li>
+            <li>
+              <Link to='/' className='bottom-link'>
+                <Text>Cookie Policy</Text>
+              </Link>
+            </li>
+          </ul>
         </div>
       </Container>
     </FooterWrapper>
