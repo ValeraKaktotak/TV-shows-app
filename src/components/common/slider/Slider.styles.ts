@@ -1,3 +1,62 @@
 import styled from 'styled-components'
+import { theme } from '../../../styles/theme/theme'
 
-export const SliderWrapper = styled.div``
+export const SliderWrapper = styled.div`
+  .custom-prev-arrow,
+  .custom-next-arrow {
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    border: 1px solid ${theme.colors.black12};
+    transition: ${theme.transitions.allEaseInOut};
+
+    @media (max-width: ${theme.breakpoints.lg}) {
+      width: 48px;
+      height: 48px;
+    }
+
+    img {
+      width: 18px;
+    }
+
+    &:hover {
+      transform: translateY(-50%) scale(0.95);
+    }
+  }
+  .custom-prev-arrow {
+    left: 8px;
+
+    @media (max-width: ${theme.breakpoints.lg}) {
+      left: 0;
+    }
+  }
+
+  .custom-next-arrow {
+    right: 8px;
+
+    @media (max-width: ${theme.breakpoints.lg}) {
+      right: 0;
+    }
+  }
+
+  .slick-dots {
+    margin-bottom: -20px;
+
+    li {
+      margin: 0 4px;
+      heigh: auto !important;
+
+      &.slick-active {
+        button {
+          &::before {
+            background: ${theme.colors.primary};
+          }
+        }
+      }
+    }
+  }
+`

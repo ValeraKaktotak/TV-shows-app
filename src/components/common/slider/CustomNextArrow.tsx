@@ -1,5 +1,17 @@
 import type { FC } from 'react'
+import { Icons } from '../../../assets/icons'
 
-export const CustomNextArrow: FC = () => {
-  return <div>CustomNextArrow</div>
+interface CustomNextArrowProps {
+  onClick?: React.MouseEventHandler
+}
+
+export const CustomNextArrow: FC<CustomNextArrowProps> = ({ onClick }) => {
+  return (
+    <button
+      className='custom-next-arrow bg-black06 flex items-center justify-center'
+      onClick={onClick}
+    >
+      <img src={Icons.ArrowRight} alt='Right arrow' />
+    </button>
+  )
 }
