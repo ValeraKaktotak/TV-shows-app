@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { theme } from '../../styles/theme/theme'
 
 export const FooterWrapper = styled.footer`
-  padding: 60px 0;
+  padding-top: 60px;
 
   @media (max-width: ${theme.breakpoints.xl}) {
     padding: 40px 0;
@@ -41,7 +41,7 @@ export const FooterWrapper = styled.footer`
   .footer-bottom {
     column-gap: 40px;
     row-gap: 16px;
-    padding-top: 24px;
+    padding: 24px 0;
     border-top: 1px solid ${theme.colors.black15};
 
     @media (max-width: ${theme.breakpoints.lg}) {
@@ -81,4 +81,41 @@ export const FooterWrapper = styled.footer`
     }
   }
 `
-export const FooterItemWrapper = styled.div``
+export const FooterItemWrapper = styled.div`
+  .item-title {
+    margin-bottom: 20px;
+  }
+
+  .item-text-links {
+    display: grid;
+    row-gap: 12px;
+
+    a {
+      display: inline-flex;
+    }
+  }
+
+  .item-icons-links {
+    column-gap: 12px;
+
+    @media (max-width: ${theme.breakpoints.xs}) {
+      justify-content: center;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+    }
+
+    .item-icon-link {
+      border-radius: 8px;
+      border: 1px solid ${theme.colors.black15};
+      width: 48px;
+      height: 48px;
+
+      img {
+        width: 24px;
+      }
+    }
+  }
+`
