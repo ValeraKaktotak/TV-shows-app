@@ -11,3 +11,9 @@ interface FOOTER_LINKS_Link {
   link_url: string
   link_icon?: string
 }
+
+interface GENRES_Interface {
+  id: string
+  thumbnail: string
+  name: string
+}

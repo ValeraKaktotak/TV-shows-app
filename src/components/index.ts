@@ -1,3 +1,5 @@
+export * from './common/SectionTitle/SectionTitle'
+export * from './common/genre/Genre/Genre'
 export * from './footer/Footer'
 export * from './header/Header'
 export * from './home/Banner/Banner'
