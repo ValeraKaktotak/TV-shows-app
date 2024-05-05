@@ -18,10 +18,10 @@ export const GenreItem: FC<GenreItemInterface> = ({ data }) => {
         </div>
         <div className='item-body flex items-center justify-between'>
           <div className='item-title font-semibold'>{name}</div>
+          <Link to='/' className='item-arrow-link'>
+            <img src={Icons.ArrowRight} alt='Arrow right' />
+          </Link>
         </div>
-        <Link to='/' className='item-arrow-link'>
-          <img src={Icons.ArrowRight} alt='Arrow right' />
-        </Link>
       </div>
     </GenreItemWrapper>
   )

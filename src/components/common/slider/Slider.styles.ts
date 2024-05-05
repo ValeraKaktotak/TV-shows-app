@@ -48,7 +48,7 @@ export const SliderWrapper = styled.div`
 
     li {
       margin: 0 4px;
-      heigh: auto !important;
+      height: auto !important;
 
       &.slick-active {
         button {
@@ -56,6 +56,17 @@ export const SliderWrapper = styled.div`
             background: ${theme.colors.primary};
           }
         }
+      }
+    }
+    button {
+      height: auto !important;
+      &::before {
+        width: 23px;
+        height: 4px;
+        border-radius: 100vh;
+        background: #333;
+        content: '';
+        opacity: 1;
       }
     }
   }
