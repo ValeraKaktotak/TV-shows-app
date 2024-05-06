@@ -115,7 +115,7 @@ export const FAQS = [
     id: 'faq_7',
     question: 'How do I contact StreamVibe customer support?',
     answer:
-      'StreamVibe provides you 24/7 customer care & services. You can email us in the stream@customer.gmail.com or sv@support.gmail.com. You can chat online using the following link: www.streamvibe.com/inquiry/akdfQEF4'
+      'StreamVibe provides you 24/7 customer care & services. You can email us in the stream@customer.gmail.com or sv@support.gmail.com. You can chat online using the following link: www.streamvibe.com/inquiry'
   },
   {
     id: 'faq_8',
