@@ -17,3 +17,9 @@ interface GENRES_Interface {
   thumbnail: string
   name: string
 }
+
+interface FAQS_Interface {
+  id: string
+  question: string
+  answer: string
+}
