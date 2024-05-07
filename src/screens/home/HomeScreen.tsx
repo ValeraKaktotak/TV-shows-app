@@ -2,6 +2,7 @@ import { type FC } from 'react'
 import {
   Banner,
   CommonQuestions,
+  FreeTrial,
   Genre,
   StreamDevices,
   Subscription
@@ -18,6 +19,7 @@ export const HomeScreen: FC = () => {
       <StreamDevices />
       <CommonQuestions />
       <Subscription />
+      <FreeTrial />
     </div>
   )
 }

@@ -1,3 +1,4 @@
+export * from './common/FreeTrial/FreeTrial'
 export * from './common/SectionTitle/SectionTitle'
 export * from './common/genre/Genre/Genre'
 export * from './footer/Footer'
