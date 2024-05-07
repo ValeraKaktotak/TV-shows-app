@@ -1,4 +1,5 @@
 import type { FC } from 'react'
+
 import { RIGHT_CONTENT_TYPE } from '../../../constant/commonConstans'
 import { BaseLinkPrimary } from '../../../styles/components/Button'
 import {
@@ -6,6 +7,7 @@ import {
   HeadingTitle,
   Paragraph
 } from '../../../styles/global/default'
+
 import { SectionTitleWrapper } from './SectionTitle.styles'
 
 interface ISectionTitle {

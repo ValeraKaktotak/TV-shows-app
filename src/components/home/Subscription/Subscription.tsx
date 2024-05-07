@@ -1,7 +1,9 @@
 import type { FC } from 'react'
+
 import { SUBSCRIPTIONS } from '../../../constant/mockData'
 import { Container } from '../../../styles/global/default'
 import { SectionTitle } from '../../common/SectionTitle/SectionTitle'
+
 import { SubscriptionWrapper } from './Subscription.styles'
 import { SubscriptionItem } from './SubscriptionItem'
 

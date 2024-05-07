@@ -1,4 +1,5 @@
 import type { FC } from 'react'
+
 import { Icons } from '../../../assets/icons'
 
 interface CustomNextArrowProps {

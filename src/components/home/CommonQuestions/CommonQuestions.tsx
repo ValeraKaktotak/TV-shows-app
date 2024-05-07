@@ -1,8 +1,10 @@
 import type { FC } from 'react'
+
 import { RIGHT_CONTENT_TYPE } from '../../../constant/commonConstans'
 import { FAQS } from '../../../constant/mockData'
 import { Container } from '../../../styles/global/default'
 import { SectionTitle } from '../../common/SectionTitle/SectionTitle'
+
 import { CommonQuestionItem } from './CommonQuestionItem'
 import { CommonQuestionsWrapper } from './CommonQuestions.styles'
 

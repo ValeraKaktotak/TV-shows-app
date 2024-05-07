@@ -1,5 +1,6 @@
 import type { FC } from 'react'
 import { Outlet } from 'react-router-dom'
+
 import { PageWrapper } from '../../styles/global/default'
 import { Footer } from '../footer/Footer'
 import { Header } from '../header/Header'

@@ -1,5 +1,6 @@
 import type { FC } from 'react'
 import { Link } from 'react-router-dom'
+
 import { Text } from '../../../styles/global/default'
 import { FooterItemWrapper } from '../Footer.styles'
 
@@ -9,7 +10,7 @@ interface FooterItemInterface {
 }
 
 export const FooterItem: FC<FooterItemInterface> = ({ data }) => {
-  const { id, link_title, link_type, links } = data
+  const { link_title } = data
   return (
     <FooterItemWrapper>
       <h4 className='item-title text-xl capitalize font-semibold'>

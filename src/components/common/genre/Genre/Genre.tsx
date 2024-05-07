@@ -1,7 +1,6 @@
 import { type FC } from 'react'
 import Slider from 'react-slick'
-import 'slick-carousel/slick/slick-theme.css'
-import 'slick-carousel/slick/slick.css'
+
 import { GENRES } from '../../../../constant/mockData'
 import { Container } from '../../../../styles/global/default'
 import { SectionTitle } from '../../SectionTitle/SectionTitle'
@@ -9,7 +8,11 @@ import { CustomNextArrow } from '../../slider/CustomNextArrow'
 import { CustomPrevArrow } from '../../slider/CustomPrevArrow'
 import { SliderWrapper } from '../../slider/Slider.styles'
 import { GenreItem } from '../GenreItem/GenreItem'
+
 import { GenreWrapper } from './Genre.styles'
+
+import 'slick-carousel/slick/slick-theme.css'
+import 'slick-carousel/slick/slick.css'
 
 export const Genre: FC = () => {
   const settings = {

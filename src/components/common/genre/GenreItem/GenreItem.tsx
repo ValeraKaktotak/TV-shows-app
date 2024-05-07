@@ -1,6 +1,8 @@
 import type { FC } from 'react'
 import { Link } from 'react-router-dom'
+
 import { Icons } from '../../../../assets/icons'
+
 import { GenreItemWrapper } from './GenreItem.styles'
 
 interface GenreItemInterface {
@@ -9,7 +11,7 @@ interface GenreItemInterface {
 }
 
 export const GenreItem: FC<GenreItemInterface> = ({ data }) => {
-  const { id, name, thumbnail } = data
+  const { name, thumbnail } = data
   return (
     <GenreItemWrapper>
       <div className='item-content'>

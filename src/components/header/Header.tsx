@@ -1,6 +1,7 @@
-import { useEffect, useRef, type FC } from 'react'
+import { type FC,useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
+
 import { Icons } from '../../assets/icons'
 import { Images } from '../../assets/images'
 import routeConstants from '../../constant/routeConstants'
@@ -12,6 +13,7 @@ import {
 } from '../../redux/slices/sidebarSlice'
 import { useAppDispatch } from '../../redux/store'
 import { Container } from '../../styles/global/default'
+
 import {
   BrandWrapper,
   HeaderIconsWrapper,
@@ -57,6 +59,7 @@ export const Header: FC = () => {
     return () => {
       document.body.removeEventListener('click', handleNavClose)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // auto close on link click

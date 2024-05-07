@@ -1,4 +1,5 @@
 import type { FC } from 'react'
+
 import { Icons } from '../../../assets/icons'
 import routeConstants from '../../../constant/routeConstants'
 import { BaseLinkPrimary } from '../../../styles/components/Button'
@@ -7,6 +8,7 @@ import {
   HeadingBanner,
   Paragraph
 } from '../../../styles/global/default'
+
 import { BannerWrapper } from './Banner.style'
 
 export const Banner: FC = () => {

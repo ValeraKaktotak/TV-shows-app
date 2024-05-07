@@ -1,6 +1,8 @@
 import type { FC } from 'react'
+
 import { BaseLinkSecondary } from '../../../styles/components/Button'
 import { HeadingTitleMd, Paragraph } from '../../../styles/global/default'
+
 import { SubscriptionItemWrapper } from './Subscription.styles'
 
 interface ISubscriptionItem {

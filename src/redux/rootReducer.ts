@@ -1,7 +1,9 @@
-import { combineReducers } from '@reduxjs/toolkit'
 import persistReducer from 'redux-persist/es/persistReducer'
-import persistConfig from './persistConfig'
+
+import { combineReducers } from '@reduxjs/toolkit'
+
 import sidebarReducer from './slices/sidebarSlice'
+import persistConfig from './persistConfig'
 
 const rootReducer = combineReducers({
   sidebar: sidebarReducer

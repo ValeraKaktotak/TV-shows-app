@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import { Images } from '../../../assets/images'
 import { theme } from '../../../styles/theme/theme'
 

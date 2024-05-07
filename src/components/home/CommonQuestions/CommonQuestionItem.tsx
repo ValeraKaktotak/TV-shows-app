@@ -1,6 +1,8 @@
-import { useState, type FC } from 'react'
+import { type FC,useState } from 'react'
+
 import { Icons } from '../../../assets/icons'
 import { Paragraph } from '../../../styles/global/default'
+
 import { CommonQuestionsItemWrapper } from './CommonQuestions.styles'
 
 interface ICommonQuestionItem {

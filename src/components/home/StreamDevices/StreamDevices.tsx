@@ -1,4 +1,5 @@
 import type { FC } from 'react'
+
 import { STREAM_DEVICES } from '../../../constant/mockData'
 import {
   Container,
@@ -6,6 +7,7 @@ import {
   Paragraph
 } from '../../../styles/global/default'
 import { SectionTitle } from '../../common/SectionTitle/SectionTitle'
+
 import { StreamDevicesWrapper } from './StreamDevices.styles'
 
 export const StreamDevices: FC = () => {

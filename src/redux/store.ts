@@ -1,14 +1,15 @@
-import { configureStore } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
 import {
   FLUSH,
   PAUSE,
   PERSIST,
+  persistStore,
   PURGE,
   REGISTER,
-  REHYDRATE,
-  persistStore
-} from 'redux-persist'
+  REHYDRATE} from 'redux-persist'
+
+import { configureStore } from '@reduxjs/toolkit'
+
 import persistedReducer from './rootReducer'
 
 export const store = configureStore({

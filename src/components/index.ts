@@ -1,6 +1,6 @@
 export * from './common/FreeTrial/FreeTrial'
-export * from './common/SectionTitle/SectionTitle'
 export * from './common/genre/Genre/Genre'
+export * from './common/SectionTitle/SectionTitle'
 export * from './footer/Footer'
 export * from './header/Header'
 export * from './home/Banner/Banner'

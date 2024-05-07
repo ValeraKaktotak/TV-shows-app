@@ -1,10 +1,12 @@
 import type { FC } from 'react'
+
 import { BaseLinkPrimary } from '../../../styles/components/Button'
 import {
   Container,
   HeadingTitle,
   Paragraph
 } from '../../../styles/global/default'
+
 import { FreeTrialWrapper } from './FreeTrial.styles'
 
 export const FreeTrial: FC = () => {
