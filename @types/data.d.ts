@@ -31,3 +31,17 @@ interface SUBSCRIPTIONS_Interface {
   monthly_price: number
   yearly_price: number
 }
+
+interface SHOWS_SLICE_STATE_Interface {
+  shows: ShowsData_Interface[]
+  isLoading: {
+    fetchAllShows: boolean
+  }
+  isError: {
+    fetchAllShows: boolean
+  }
+  isSuccess: {
+    fetchAllShows: boolean
+  }
+  error: null | unknown
+}
