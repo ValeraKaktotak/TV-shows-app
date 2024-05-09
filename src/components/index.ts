@@ -1,3 +1,4 @@
+export * from './common/ErrorMessage/ErrorMessage'
 export * from './common/FreeTrial/FreeTrial'
 export * from './common/SectionTitle/SectionTitle'
 export * from './common/Spinner/Spinner'
