@@ -84,5 +84,5 @@ const showSlice = createSlice({
   }
 })
 
-export const selectShows = (state: RootState) => state.shows.shows
+export const selectShowsData = (state: RootState) => state.shows
 export default showSlice.reducer
