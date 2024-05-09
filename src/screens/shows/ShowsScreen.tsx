@@ -1,13 +1,22 @@
 import { useEffect, type FC } from 'react'
 import { useSelector } from 'react-redux'
-import { ErrorMessage, Spinner } from '../../components'
-import { fetchAllShows, selectShowsData } from '../../redux/slices/showsSlice'
-import { useAppDispatch } from '../../redux/store'
+import { ErrorMessage, ShowsList, Spinner } from '../../components'
+import { selectShows } from '../../redux/selectors/showsSelector'
+import { fetchAllShows } from '../../redux/slices/showsSlice'
+import { RootState, useAppDispatch } from '../../redux/store'
 import { scrollToTop } from '../../utilities/scrollToTop'
 
 export const ShowsScreen: FC = () => {
   const dispatch = useAppDispatch()
-  const { isLoading, isError } = useSelector(selectShowsData)
+
+  const allShowsData = useSelector(selectShows)
+
+  const isLoading = useSelector(
+    (state: RootState) => state.shows.isLoading.fetchAllShows
+  )
+  const isError = useSelector(
+    (state: RootState) => state.shows.isError.fetchAllShows
+  )
 
   useEffect(() => {
     dispatch(fetchAllShows())
@@ -15,12 +24,16 @@ export const ShowsScreen: FC = () => {
 
   useEffect(() => scrollToTop(), [])
 
-  if (isLoading.fetchAllShows) {
+  if (isLoading) {
     return <Spinner />
   }
-  if (isError.fetchAllShows) {
+  if (isError) {
     return <ErrorMessage />
   }
 
-  return <div className='pg-shows'></div>
+  return (
+    <div className='pg-shows'>
+      {allShowsData?.length > 0 && <ShowsList showsData={allShowsData} />}
+    </div>
+  )
 }

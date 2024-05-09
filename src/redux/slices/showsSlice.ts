@@ -3,7 +3,6 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import type { AxiosError } from 'axios'
 import errorConstants from '../../constant/errorConstants'
 import { showsService } from '../services/showsService'
-import { RootState } from '../store'
 
 type KnownError = {
   message: string
@@ -70,8 +69,7 @@ const showSlice = createSlice({
         state.isError.fetchAllShows = false
       })
       .addCase(fetchAllShows.fulfilled, (state, action) => {
-        //state.shows.push(action.payload)
-        state.shows = [...[action.payload]]
+        state.shows = [...action.payload]
         state.isLoading.fetchAllShows = false
         state.isSuccess.fetchAllShows = true
         state.isError.fetchAllShows = false
@@ -85,5 +83,4 @@ const showSlice = createSlice({
   }
 })
 
-export const selectShowsData = (state: RootState) => state.shows
 export default showSlice.reducer
