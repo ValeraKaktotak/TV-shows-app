@@ -70,7 +70,8 @@ const showSlice = createSlice({
         state.isError.fetchAllShows = false
       })
       .addCase(fetchAllShows.fulfilled, (state, action) => {
-        state.shows.push(action.payload)
+        //state.shows.push(action.payload)
+        state.shows = [...[action.payload]]
         state.isLoading.fetchAllShows = false
         state.isSuccess.fetchAllShows = true
         state.isError.fetchAllShows = false

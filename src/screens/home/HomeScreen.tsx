@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { useEffect, type FC } from 'react'
 
 import {
   Banner,
@@ -8,10 +8,10 @@ import {
   StreamDevices,
   Subscription
 } from '../../components'
-//import { scrollToTop } from '../../utilities/scrollToTop'
+import { scrollToTop } from '../../utilities/scrollToTop'
 
 export const HomeScreen: FC = () => {
-  //useEffect(() => scrollToTop(), [])
+  useEffect(() => scrollToTop(), [])
 
   return (
     <div className='pg-home'>

@@ -6,7 +6,8 @@ import {
   persistStore,
   PURGE,
   REGISTER,
-  REHYDRATE} from 'redux-persist'
+  REHYDRATE
+} from 'redux-persist'
 
 import { configureStore } from '@reduxjs/toolkit'
 
