@@ -21,6 +21,10 @@ export const ShowsItemWrapper = styled(Link)`
     .item-body {
       margin-top: 20px;
 
+      .genre {
+        width: 100%;
+      }
+
       .item-info {
         column-gap: 8px;
         row-gap: 4px;

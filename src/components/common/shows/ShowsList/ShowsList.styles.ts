@@ -1,7 +1,39 @@
 import styled from 'styled-components'
 import { theme } from '../../../../styles/theme/theme'
 
-export const PaginationWrapper = styled.div``
+export const PaginationWrapper = styled.div`
+  margin-top: 40px;
+
+  @media (max-width: ${theme.breakpoints.sm}) {
+    column-gap: 8px;
+  }
+
+  .paginate-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 0;
+    border: 1px solid ${theme.colors.black15};
+    background: ${theme.colors.secondary};
+
+    &.active {
+      background: ${theme.colors.primary};
+      border: 1px solid ${theme.colors.primary};
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: default;
+    }
+  }
+
+  .paginate-prev,
+  .paginate-next {
+    border: none;
+    img {
+      width: 20px;
+    }
+  }
+`
 
 export const ShowsListWrapper = styled.div`
   .shows-list {
