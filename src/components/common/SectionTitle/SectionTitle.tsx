@@ -12,7 +12,7 @@ import { SectionTitleWrapper } from './SectionTitle.styles'
 
 interface ISectionTitle {
   title: string
-  text: string
+  text?: string
   rightContentType?: RIGHT_CONTENT_TYPE.TITLE_BUTTON
 }
 

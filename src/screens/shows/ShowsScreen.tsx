@@ -33,7 +33,9 @@ export const ShowsScreen: FC = () => {
 
   return (
     <div className='pg-shows'>
-      {allShowsData?.length > 0 && <ShowsList showsData={allShowsData} />}
+      {allShowsData?.length > 0 && (
+        <ShowsList showsData={allShowsData} showsTitle={'All Shows'} />
+      )}
     </div>
   )
 }
