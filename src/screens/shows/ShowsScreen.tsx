@@ -1,6 +1,6 @@
 import { useEffect, type FC } from 'react'
 import { useSelector } from 'react-redux'
-import { ErrorMessage, ShowsList, Spinner } from '../../components'
+import { ErrorMessage, ShowsBanner, ShowsList, Spinner } from '../../components'
 import {
   selectShows,
   selectSortedHighRatedShows,
@@ -40,7 +40,11 @@ export const ShowsScreen: FC = () => {
 
   return (
     <div className='pg-shows'>
-      {}
+      {highRatedShowsData?.length > 0 && (
+        <ShowsBanner
+          showData={highRatedShowsData[Math.floor(Math.random() * 10)]}
+        />
+      )}
       {allShowsData?.length > 0 && (
         <ShowsList showsData={allShowsData} showsTitle={'All Shows'} />
       )}
