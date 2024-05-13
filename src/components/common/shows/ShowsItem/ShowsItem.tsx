@@ -22,10 +22,10 @@ export const ShowsItem: FC<IShowsItem> = ({ itemData, itemType }) => {
           <img src={itemData?.image?.medium} alt='Show image' />
         </div>
         <div className='item-body'>
-          <div className='flex items-center justify-between flex-wrap item-info'>
+          <div className='flex flex-col items-start justify-between flex-wrap item-info'>
             <div className='item-title font-semibold'>
-              {itemData?.name.length > 12
-                ? itemData.name.substring(0, 12) + '...'
+              {itemData?.name.length > 16
+                ? itemData.name.substring(0, 16) + '...'
                 : itemData.name}
             </div>
             {/* displaying info as per the rating */}

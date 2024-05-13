@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect'
-import { SHOWS_TYPES } from '../../constant/commonConstans'
+import { SHOWS_TYPES } from '../../constant/showsConstants'
 import { RootState } from '../store'
 
 export const selectShows = (state: RootState) => state?.shows?.shows || []

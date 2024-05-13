@@ -1,6 +1,13 @@
 import { useEffect, type FC } from 'react'
 import { useSelector } from 'react-redux'
-import { ErrorMessage, ShowsBanner, ShowsList, Spinner } from '../../components'
+import {
+  ErrorMessage,
+  ShowsBanner,
+  ShowsList,
+  ShowsSlider,
+  Spinner
+} from '../../components'
+import { SHOWS_TYPES } from '../../constant/showsConstants'
 import {
   selectShows,
   selectSortedHighRatedShows,
@@ -43,6 +50,20 @@ export const ShowsScreen: FC = () => {
       {highRatedShowsData?.length > 0 && (
         <ShowsBanner
           showData={highRatedShowsData[Math.floor(Math.random() * 10)]}
+        />
+      )}
+      {highRatedShowsData?.length > 0 && (
+        <ShowsSlider
+          sliderType={SHOWS_TYPES.HIGH_RATED_SHOWS}
+          sliderTitle={'All Time Popular Shows'}
+          showsData={highRatedShowsData}
+        />
+      )}
+      {latestPremieredShowsData?.length > 0 && (
+        <ShowsSlider
+          sliderType={SHOWS_TYPES.NEW_SHOWS}
+          sliderTitle={'New Shows to Watch'}
+          showsData={latestPremieredShowsData}
         />
       )}
       {allShowsData?.length > 0 && (

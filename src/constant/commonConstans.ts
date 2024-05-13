@@ -1,9 +1,3 @@
 export enum RIGHT_CONTENT_TYPE {
   TITLE_BUTTON = 'title-button'
 }
-
-export enum SHOWS_TYPES {
-  HIGH_RATED_SHOWS = 'HIGH_RATED_SHOWS',
-  NEW_SHOWS = 'NEW_SHOWS',
-  DEFAULT_SHOWS = 'DEFAULT_SHOWS'
-}
