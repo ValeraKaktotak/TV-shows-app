@@ -33,6 +33,12 @@ export const PaginationWrapper = styled.div`
       width: 20px;
     }
   }
+  ul {
+    @media (max-width: ${theme.breakpoints.md}) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
 `
 
 export const ShowsListWrapper = styled.div`
