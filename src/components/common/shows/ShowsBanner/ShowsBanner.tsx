@@ -18,7 +18,12 @@ export const ShowsBanner: FC<IShowsBanner> = ({ showData }) => {
   return (
     <ShowsBannerWrapper className='top-spacing-fix'>
       <Container>
-        <div className='banner-img flex justify-center items-end'>
+        <div
+          className='banner-img flex justify-center items-end'
+          style={{
+            background: `linear-gradient(0deg, #141414 0%, rgba(20,20,20,0.00) 100%), url(${showData?.image?.original}) top/cover no-repeat fixed`
+          }}
+        >
           <div className='banner-content text-center'>
             <HeadingTitle className='banner-title'>
               {showData.name}
