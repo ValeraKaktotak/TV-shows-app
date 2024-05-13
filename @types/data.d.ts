@@ -32,6 +32,11 @@ interface SUBSCRIPTIONS_Interface {
   yearly_price: number
 }
 
+type SHOWS_SLICE_ERROR_Interface = {
+  code?: string
+  message?: string
+}
+
 interface SHOWS_SLICE_STATE_Interface {
   shows: ShowsData_Interface[]
   isLoading: {
@@ -43,5 +48,5 @@ interface SHOWS_SLICE_STATE_Interface {
   isSuccess: {
     fetchAllShows: boolean
   }
-  error: null | unknown
+  error: null | unknown | SHOWS_SLICE_ERROR_Interface
 }

@@ -42,7 +42,7 @@ export const ShowsScreen: FC = () => {
     return <Spinner />
   }
   if (isError) {
-    return <ErrorMessage />
+    return <ErrorMessage error={error as SHOWS_SLICE_ERROR_Interface} />
   }
 
   return (

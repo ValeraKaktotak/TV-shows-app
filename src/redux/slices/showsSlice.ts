@@ -1,12 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 import type { AxiosError } from 'axios'
-import errorConstants from '../../constant/errorConstants'
+import { ERROR_TYPES } from '../../constant/errorConstants'
 import { showsService } from '../services/showsService'
-
-type KnownError = {
-  message: string
-}
 
 export const fetchAllShows = createAsyncThunk(
   'shows/fetch/all',
@@ -14,19 +10,20 @@ export const fetchAllShows = createAsyncThunk(
     try {
       return await showsService.fetchAllShows()
     } catch (err) {
-      const error = err as AxiosError<KnownError>
+      const error = err as AxiosError
+
       if (error.response) {
-        const { status, data } = error.response
+        const { status } = error.response
         let code = null
         if (status === 404) {
-          code = errorConstants.ERR_404
+          code = ERROR_TYPES.ERR_404
         } else if (status === 429) {
-          code = errorConstants.ERR_429
+          code = ERROR_TYPES.ERR_429
         }
 
         return thunkAPI.rejectWithValue({
           code,
-          message: data.message || 'Request Error'
+          message: 'Request Error'
         })
       } else if (error.request) {
         return thunkAPI.rejectWithValue({
