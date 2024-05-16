@@ -2,6 +2,7 @@ import { useEffect, type FC } from 'react'
 import { useSelector } from 'react-redux'
 import {
   ErrorMessage,
+  FreeTrial,
   ShowsBanner,
   ShowsList,
   ShowsSlider,
@@ -69,6 +70,8 @@ export const ShowsScreen: FC = () => {
       {allShowsData?.length > 0 && (
         <ShowsList showsData={allShowsData} showsTitle={'All Shows'} />
       )}
+
+      <FreeTrial />
     </div>
   )
 }

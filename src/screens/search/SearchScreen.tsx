@@ -1,5 +1,13 @@
-import type { FC } from 'react'
+import { useEffect, type FC } from 'react'
+import { SearchBar } from '../../components'
+import { scrollToTop } from '../../utilities/scrollToTop'
 
 export const SearchScreen: FC = () => {
-  return <div>SearchDetailScreen</div>
+  useEffect(() => scrollToTop(), [])
+
+  return (
+    <div className='pg-search top-spacing-fix'>
+      <SearchBar />
+    </div>
+  )
 }

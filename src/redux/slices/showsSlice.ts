@@ -40,6 +40,16 @@ export const fetchAllShows = createAsyncThunk(
   }
 )
 
+// export const fetchSearchResult = createAsyncThunk(
+//   'shows/fetch/search', async(query, thunkAPI) =>{
+//     try {
+//       return await showsService.fetch()
+//     } catch (err) {
+//       console.log(err)
+//     }
+//   }
+// )
+
 const initialState: SHOWS_SLICE_STATE_Interface = {
   shows: [],
   isLoading: {
