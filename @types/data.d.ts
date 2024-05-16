@@ -39,14 +39,18 @@ type SHOWS_SLICE_ERROR_Interface = {
 
 interface SHOWS_SLICE_STATE_Interface {
   shows: ShowsData_Interface[]
+  searchResults: SearchShowsData_Interface[]
   isLoading: {
     fetchAllShows: boolean
+    fetchSearchResult: boolean
   }
   isError: {
     fetchAllShows: boolean
+    fetchSearchResult: boolean
   }
   isSuccess: {
     fetchAllShows: boolean
+    fetchSearchResult: boolean
   }
   error: null | unknown | SHOWS_SLICE_ERROR_Interface
 }
