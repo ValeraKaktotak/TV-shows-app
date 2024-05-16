@@ -10,7 +10,7 @@ import { Text } from '../../../../styles/global/default'
 import { ShowsItemWrapper } from './ShowsItem.styles'
 
 interface IShowsItem {
-  itemData: ShowsData_Interface
+  itemData: ShowsData_Interface | Show
   itemType: string
 }
 

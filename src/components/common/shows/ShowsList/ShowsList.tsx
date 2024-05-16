@@ -7,7 +7,7 @@ import { ShowsItem } from '../ShowsItem/ShowsItem'
 import { PaginationWrapper, ShowsListWrapper } from './ShowsList.styles'
 
 interface IShowsList {
-  showsData: ShowsData_Interface[]
+  showsData: ShowsData_Interface[] | Show[]
   showsTitle: string
 }
 

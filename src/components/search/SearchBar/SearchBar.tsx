@@ -1,12 +1,21 @@
 import { SyntheticEvent, useRef, useState, type FC } from 'react'
+import { useSelector } from 'react-redux'
 import { Icons } from '../../../assets/icons'
 import { Images } from '../../../assets/images'
+import { selectSearchResults } from '../../../redux/selectors/showsSelector'
+import {
+  fetchSearchResult,
+  resetSearchResult
+} from '../../../redux/slices/showsSlice'
 import { useAppDispatch } from '../../../redux/store'
+import { NotDataFound } from '../../common/NotDataFound/NotDataFound'
+import { SearchList } from '../SearchList/SearchList'
 import { SearchBarWrapper } from './SearchBar.styles'
 
 export const SearchBar: FC = () => {
   const inputRef = useRef<HTMLInputElement>(null)
   const dispatch = useAppDispatch()
+  const searchResultsData = useSelector(selectSearchResults)
 
   const [query, setQuery] = useState('')
   const [searchError, setSearchError] = useState('')
@@ -19,11 +28,12 @@ export const SearchBar: FC = () => {
 
   const handlerQuerySubmit = (event: SyntheticEvent) => {
     event.preventDefault()
-    const target = (event.target as HTMLFormElement).search_text.value
+
     if (isValidSearchQuery(query)) {
-      //dispatch()
+      dispatch(resetSearchResult())
       setHasValidQuery(true)
       setSearchError('')
+      dispatch(fetchSearchResult(query))
     } else if (query.trim().length === 0) {
       setSearchError('Please enter search name.')
       setHasValidQuery(false)
@@ -54,6 +64,7 @@ export const SearchBar: FC = () => {
                 className='text-lg font-semibold'
                 onChange={handlerQueryChange}
                 ref={inputRef}
+                autoComplete='off'
               />
             </div>
             <button type='submit' className='search-icon bg-transparent'>
@@ -63,7 +74,14 @@ export const SearchBar: FC = () => {
           </div>
         </form>
       </div>
-      <div className='searchbar-bottom'></div>
+      <div className='searchbar-bottom'>
+        {hasValidQuery &&
+          (searchResultsData && searchResultsData.length > 0 ? (
+            <SearchList searchResultsData={searchResultsData} />
+          ) : (
+            <NotDataFound />
+          ))}
+      </div>
     </SearchBarWrapper>
   )
 }

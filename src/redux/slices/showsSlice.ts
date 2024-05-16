@@ -97,7 +97,11 @@ const initialState: SHOWS_SLICE_STATE_Interface = {
 const showSlice = createSlice({
   name: 'shows',
   initialState,
-  reducers: {},
+  reducers: {
+    resetSearchResult: (state) => {
+      state.searchResults = []
+    }
+  },
   extraReducers(builder) {
     builder
       .addCase(fetchAllShows.pending, (state) => {
@@ -137,4 +141,5 @@ const showSlice = createSlice({
   }
 })
 
+export const { resetSearchResult } = showSlice.actions
 export default showSlice.reducer
