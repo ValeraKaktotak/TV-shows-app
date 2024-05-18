@@ -19,7 +19,19 @@ const fetchSearchResult = async (
   return response.data
 }
 
+const fetchSingleShow = async (
+  showId: string
+): Promise<SingleShowData_Interface> => {
+  const fetchShowDetailUrl =
+    urlConstants.fetchShowsUrl +
+    `/${showId}` +
+    urlConstants.seasonsCastEpisodesEmbed
+  const response = await axios.get<SingleShowData_Interface>(fetchShowDetailUrl)
+  return response.data
+}
+
 export const showsService = {
   fetchAllShows,
-  fetchSearchResult
+  fetchSearchResult,
+  fetchSingleShow
 }
