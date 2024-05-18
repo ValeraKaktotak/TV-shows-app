@@ -80,7 +80,7 @@ export const fetchSingleShow = createAsyncThunk(
   'shows/fetch/single',
   async (showId: string, thunkAPI) => {
     try {
-      //thunkAPI.dispatch(showSlice.actions.resetSingleShow())
+      thunkAPI.dispatch(showSlice.actions.resetSingleShow())
       return await showsService.fetchSingleShow(showId)
     } catch (err) {
       const error = err as AxiosError
@@ -119,15 +119,18 @@ const initialState: SHOWS_SLICE_STATE_Interface = {
   singleShow: null,
   isLoading: {
     fetchAllShows: false,
-    fetchSearchResult: false
+    fetchSearchResult: false,
+    fetchSingleShow: false
   },
   isError: {
     fetchAllShows: false,
-    fetchSearchResult: false
+    fetchSearchResult: false,
+    fetchSingleShow: false
   },
   isSuccess: {
     fetchAllShows: false,
-    fetchSearchResult: false
+    fetchSearchResult: false,
+    fetchSingleShow: false
   },
   error: null
 }
@@ -138,6 +141,9 @@ const showSlice = createSlice({
   reducers: {
     resetSearchResult: (state) => {
       state.searchResults = []
+    },
+    resetSingleShow: (state) => {
+      state.singleShow = null
     }
   },
   extraReducers(builder) {
@@ -174,6 +180,23 @@ const showSlice = createSlice({
         state.isLoading.fetchSearchResult = false
         state.isSuccess.fetchSearchResult = false
         state.isError.fetchSearchResult = true
+        state.error = action.payload
+      })
+      .addCase(fetchSingleShow.pending, (state) => {
+        state.isLoading.fetchSingleShow = true
+        state.isSuccess.fetchSingleShow = false
+        state.isError.fetchSingleShow = false
+      })
+      .addCase(fetchSingleShow.fulfilled, (state, action) => {
+        state.singleShow = action.payload
+        state.isLoading.fetchSingleShow = false
+        state.isSuccess.fetchSingleShow = true
+        state.isError.fetchSingleShow = false
+      })
+      .addCase(fetchSingleShow.rejected, (state, action) => {
+        state.isLoading.fetchSingleShow = false
+        state.isSuccess.fetchSingleShow = false
+        state.isError.fetchSingleShow = true
         state.error = action.payload
       })
   }

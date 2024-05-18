@@ -44,14 +44,17 @@ interface SHOWS_SLICE_STATE_Interface {
   isLoading: {
     fetchAllShows: boolean
     fetchSearchResult: boolean
+    fetchSingleShow: boolean
   }
   isError: {
     fetchAllShows: boolean
     fetchSearchResult: boolean
+    fetchSingleShow: boolean
   }
   isSuccess: {
     fetchAllShows: boolean
     fetchSearchResult: boolean
+    fetchSingleShow: boolean
   }
   error: null | unknown | SHOWS_SLICE_ERROR_Interface
 }
