@@ -76,9 +76,47 @@ export const fetchSearchResult = createAsyncThunk(
   }
 )
 
+export const fetchSingleShow = createAsyncThunk(
+  'shows/fetch/single',
+  async (showId: string, thunkAPI) => {
+    try {
+      //thunkAPI.dispatch(showSlice.actions.resetSingleShow())
+      return await showsService.fetchSingleShow(showId)
+    } catch (err) {
+      const error = err as AxiosError
+
+      if (error.response) {
+        const { status } = error.response
+        let code = null
+        if (status === 404) {
+          code = ERROR_TYPES.ERR_404
+        } else if (status === 429) {
+          code = ERROR_TYPES.ERR_429
+        }
+
+        return thunkAPI.rejectWithValue({
+          code,
+          message: 'Request Error'
+        })
+      } else if (error.request) {
+        return thunkAPI.rejectWithValue({
+          code: error.code,
+          message: 'Network Error'
+        })
+      }
+
+      return thunkAPI.rejectWithValue({
+        code: 'ERR_GENERIC',
+        message: 'Error'
+      })
+    }
+  }
+)
+
 const initialState: SHOWS_SLICE_STATE_Interface = {
   shows: [],
   searchResults: [],
+  singleShow: null,
   isLoading: {
     fetchAllShows: false,
     fetchSearchResult: false
