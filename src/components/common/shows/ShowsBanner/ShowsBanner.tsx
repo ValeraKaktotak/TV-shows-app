@@ -11,7 +11,7 @@ import {
 import { ShowsBannerWrapper } from './ShowsBanner.styles'
 
 interface IShowsBanner {
-  showData: ShowsData_Interface
+  showData: ShowsData_Interface | SingleShowData_Interface
 }
 
 export const ShowsBanner: FC<IShowsBanner> = ({ showData }) => {
@@ -36,7 +36,7 @@ export const ShowsBanner: FC<IShowsBanner> = ({ showData }) => {
             ></div>
             <div className='banner-info flex flex-col items-center'>
               <BaseLinkPrimary
-                to={showData?.officialSite || '/shows'}
+                to={showData?.officialSite || '/not found'}
                 target='_blank'
                 rel='noopener noreferrer'
               >

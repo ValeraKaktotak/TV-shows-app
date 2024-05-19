@@ -10,7 +10,7 @@ export const fetchAllShows = createAsyncThunk(
     try {
       return await showsService.fetchAllShows()
     } catch (err) {
-      const error = err as AxiosError
+      const error = err as AxiosError<SHOWS_SLICE_ERROR_Interface>
 
       if (error.response) {
         const { status } = error.response
@@ -163,7 +163,20 @@ const showSlice = createSlice({
         state.isLoading.fetchAllShows = false
         state.isSuccess.fetchAllShows = false
         state.isError.fetchAllShows = true
-        state.error = action.payload
+        //state.error = action.payload
+        if (
+          typeof action.payload === 'object' &&
+          action.payload !== null &&
+          'code' in action.payload &&
+          'message' in action.payload
+        ) {
+          state.error = action.payload as SHOWS_SLICE_ERROR_Interface
+        } else {
+          state.error = {
+            code: 'ERR_UNKNOWN',
+            message: 'Unknown error occurred'
+          }
+        }
       })
       .addCase(fetchSearchResult.pending, (state) => {
         state.isLoading.fetchSearchResult = true
@@ -180,7 +193,20 @@ const showSlice = createSlice({
         state.isLoading.fetchSearchResult = false
         state.isSuccess.fetchSearchResult = false
         state.isError.fetchSearchResult = true
-        state.error = action.payload
+        //state.error = action.payload
+        if (
+          typeof action.payload === 'object' &&
+          action.payload !== null &&
+          'code' in action.payload &&
+          'message' in action.payload
+        ) {
+          state.error = action.payload as SHOWS_SLICE_ERROR_Interface
+        } else {
+          state.error = {
+            code: 'ERR_UNKNOWN',
+            message: 'Unknown error occurred'
+          }
+        }
       })
       .addCase(fetchSingleShow.pending, (state) => {
         state.isLoading.fetchSingleShow = true
@@ -197,10 +223,23 @@ const showSlice = createSlice({
         state.isLoading.fetchSingleShow = false
         state.isSuccess.fetchSingleShow = false
         state.isError.fetchSingleShow = true
-        state.error = action.payload
+        //state.error = action.payload
+        if (
+          typeof action.payload === 'object' &&
+          action.payload !== null &&
+          'code' in action.payload &&
+          'message' in action.payload
+        ) {
+          state.error = action.payload as SHOWS_SLICE_ERROR_Interface
+        } else {
+          state.error = {
+            code: 'ERR_UNKNOWN',
+            message: 'Unknown error occurred'
+          }
+        }
       })
   }
 })
 
-export const { resetSearchResult } = showSlice.actions
+export const { resetSearchResult, resetSingleShow } = showSlice.actions
 export default showSlice.reducer

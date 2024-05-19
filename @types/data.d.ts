@@ -33,7 +33,7 @@ interface SUBSCRIPTIONS_Interface {
 }
 
 type SHOWS_SLICE_ERROR_Interface = {
-  code?: string
+  code?: string | null
   message?: string
 }
 
@@ -56,5 +56,5 @@ interface SHOWS_SLICE_STATE_Interface {
     fetchSearchResult: boolean
     fetchSingleShow: boolean
   }
-  error: null | unknown | SHOWS_SLICE_ERROR_Interface
+  error: SHOWS_SLICE_ERROR_Interface | null
 }

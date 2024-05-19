@@ -5,12 +5,10 @@ import { Container, HeadingTitleMd } from '../../../styles/global/default'
 import { ErrorMessageWrapper } from './ErrorMessage.styles'
 
 interface IErrorMessage {
-  error: SHOWS_SLICE_ERROR_Interface
+  error: SHOWS_SLICE_ERROR_Interface | null
 }
 
 export const ErrorMessage: FC<IErrorMessage> = ({ error }) => {
-  console.log(error)
-
   const displayErrorImage = () => {
     if (error?.code === ERROR_TYPES.ERR_404) {
       return <img className='error-img' src={Images.Error404} alt='Error 404' />

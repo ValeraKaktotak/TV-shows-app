@@ -30,3 +30,7 @@ export const selectSortedNewShows = sortShowsByType(SHOWS_TYPES.NEW_SHOWS)
 //search results
 export const selectSearchResults = (state: RootState) =>
   state?.shows?.searchResults || []
+
+//single show details
+export const selectSingleShowDetails = (state: RootState) =>
+  state?.shows?.singleShow
