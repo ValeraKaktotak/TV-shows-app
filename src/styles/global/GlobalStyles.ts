@@ -318,4 +318,7 @@ export const GlobalStyles = createGlobalStyle`
             margin-top: 80px;
         }
     }
+    .min-height{
+        min-height: 100vh;
+    }
 `

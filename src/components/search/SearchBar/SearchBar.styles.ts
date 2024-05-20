@@ -18,7 +18,8 @@ export const SearchBarWrapper = styled.div`
     column-gap: 16px;
     background-color: ${theme.colors.black15};
     border-radius: 100vh;
-    min-width: 600px;
+    width: 100%;
+    max-width: 600px;
     padding: 16px 24px;
     border: 1px solid ${theme.colors.gray60};
 

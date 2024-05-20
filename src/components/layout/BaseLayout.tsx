@@ -10,7 +10,7 @@ export const BaseLayout: FC = () => {
     <PageWrapper>
       <Header />
       {/* main content */}
-      <section style={{ minHeight: '100vh' }}>
+      <section className='min-height'>
         <Outlet />
       </section>
       {/* end of main content */}
