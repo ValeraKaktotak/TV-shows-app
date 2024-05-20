@@ -9,10 +9,7 @@ import {
   ShowsBanner,
   Spinner
 } from '../../components'
-import {
-  selectShowMetadata,
-  selectSingleShowDetails
-} from '../../redux/selectors/showsSelector'
+import { selectSingleShowDetails } from '../../redux/selectors/showsSelector'
 import { fetchSingleShow } from '../../redux/slices/showsSlice'
 import { RootState, useAppDispatch } from '../../redux/store'
 import { Container } from '../../styles/global/default'
@@ -32,8 +29,6 @@ export const ShowDetailScreen: FC = () => {
   )
   const error = useSelector((state: RootState) => state?.shows?.error)
 
-  const showMetaData = useSelector(selectShowMetadata)
-
   useEffect(() => scrollToTop(), [])
   useEffect(() => {
     dispatch(fetchSingleShow(id!))
@@ -49,7 +44,7 @@ export const ShowDetailScreen: FC = () => {
         {showDetailsData && (
           <ShowDetailScreenWrapper>
             <ShowMainData />
-            <ShowMetaData metaData={showMetaData} />
+            <ShowMetaData />
           </ShowDetailScreenWrapper>
         )}
       </Container>
