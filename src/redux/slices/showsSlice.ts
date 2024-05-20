@@ -23,7 +23,7 @@ export const fetchAllShows = createAsyncThunk(
 
         return thunkAPI.rejectWithValue({
           code,
-          message: 'Request Error'
+          message: 'Response Error'
         })
       } else if (error.request) {
         return thunkAPI.rejectWithValue({
@@ -59,7 +59,7 @@ export const fetchSearchResult = createAsyncThunk(
 
         return thunkAPI.rejectWithValue({
           code,
-          message: 'Request Error'
+          message: 'Response Error'
         })
       } else if (error.request) {
         return thunkAPI.rejectWithValue({
@@ -96,7 +96,7 @@ export const fetchSingleShow = createAsyncThunk(
 
         return thunkAPI.rejectWithValue({
           code,
-          message: 'Request Error'
+          message: 'Response Error'
         })
       } else if (error.request) {
         return thunkAPI.rejectWithValue({
