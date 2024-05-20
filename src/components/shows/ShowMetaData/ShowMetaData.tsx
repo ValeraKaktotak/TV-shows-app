@@ -56,7 +56,7 @@ export const ShowMetaData: FC = () => {
           <div className='block-item-body flex items-center flex-wrap'>
             {metaData?.genres?.map((genre, index) => (
               <div className='block-item-pill text-md' key={index}>
-                {genre + ' '}
+                {genre}
               </div>
             ))}
           </div>
