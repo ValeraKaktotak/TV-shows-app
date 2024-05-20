@@ -35,7 +35,11 @@ export const ShowCast: FC = () => {
           >
             {castData?.map((cast) => (
               <div className='show-cast-item' key={cast.person.id}>
-                <Link to={cast?.person?.url || '#'} className='item-content'>
+                <Link
+                  to={cast?.person?.url || '#'}
+                  className='item-content'
+                  target='_blank'
+                >
                   <img
                     src={cast?.person?.image?.medium}
                     alt=''
