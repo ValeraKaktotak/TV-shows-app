@@ -34,3 +34,43 @@ export const selectSearchResults = (state: RootState) =>
 //single show details
 export const selectSingleShowDetails = (state: RootState) =>
   state?.shows?.singleShow
+
+export const selectShowMetadata = createSelector(
+  [selectSingleShowDetails],
+  (showDetail) => {
+    if (!showDetail) return null
+    return {
+      name: showDetail.name,
+      officialSite: showDetail.officialSite,
+      premiered: showDetail.premiered,
+      ended: showDetail.ended,
+      genres: showDetail.genres,
+      image: showDetail.image,
+      rating: showDetail.rating,
+      runtime: showDetail.runtime,
+      status: showDetail.status,
+      language: showDetail.language,
+      url: showDetail.url
+    }
+  }
+)
+
+export const selectShowDescription = createSelector(
+  [selectSingleShowDetails],
+  (showDetail) => showDetail?.summary
+)
+
+export const selectShowSeasons = createSelector(
+  [selectSingleShowDetails],
+  (showDetail) => showDetail?._embedded?.seasons
+)
+
+export const selectShowCast = createSelector(
+  [selectSingleShowDetails],
+  (showDetail) => showDetail?._embedded?.cast
+)
+
+export const selectShowEpisodes = createSelector(
+  [selectSingleShowDetails],
+  (showDetail) => showDetail?._embedded?.episodes
+)

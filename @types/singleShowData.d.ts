@@ -1,3 +1,16 @@
+interface ShowMetadata {
+  name: SingleShowData_Interface.name
+  officialSite: SingleShowData_Interface.officialSite
+  premiered: SingleShowData_Interface.premiered
+  ended: SingleShowData_Interface.ended
+  genres: SingleShowData_Interface.genres
+  image: SingleShowData_Interface.image
+  rating: SingleShowData_Interface.rating
+  runtime: SingleShowData_Interface.runtime
+  status: SingleShowData_Interface.status
+  language: SingleShowData_Interface.language
+  url: SingleShowData_Interface.url
+}
 interface SingleShowData_Interface {
   id: number
   url: string
