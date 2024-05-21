@@ -2,10 +2,12 @@ import type { FC } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Slider from 'react-slick'
+
 import { selectShowCast } from '../../../redux/selectors/showsSelector'
 import { CustomNextArrow } from '../../common/slider/CustomNextArrow'
 import { CustomPrevArrow } from '../../common/slider/CustomPrevArrow'
 import { SliderWrapper } from '../../common/slider/Slider.styles'
+
 import { ShowCastWrapper } from './ShowCast.styles'
 
 export const ShowCast: FC = () => {

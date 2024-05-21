@@ -1,7 +1,9 @@
 import type { FC } from 'react'
+
 import { Images } from '../../../assets/images'
 import { ERROR_TYPES } from '../../../constant/errorConstants'
 import { Container, HeadingTitleMd } from '../../../styles/global/default'
+
 import { ErrorMessageWrapper } from './ErrorMessage.styles'
 
 interface IErrorMessage {

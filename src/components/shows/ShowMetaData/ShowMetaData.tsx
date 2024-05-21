@@ -1,8 +1,10 @@
 import type { FC } from 'react'
 import { useSelector } from 'react-redux'
+
 import { Icons } from '../../../assets/icons'
 import { selectShowMetadata } from '../../../redux/selectors/showsSelector'
 import { Paragraph } from '../../../styles/global/default'
+
 import { ShowMetaDataWrapper } from './ShowMetaData.styles'
 
 export const ShowMetaData: FC = () => {

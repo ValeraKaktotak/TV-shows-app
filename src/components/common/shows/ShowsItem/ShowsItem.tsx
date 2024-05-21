@@ -1,4 +1,5 @@
 import type { FC } from 'react'
+
 import { Icons } from '../../../../assets/icons'
 import routeConstants from '../../../../constant/routeConstants'
 import {
@@ -7,6 +8,7 @@ import {
   NEW_SHOWS
 } from '../../../../constant/showsConstants'
 import { Text } from '../../../../styles/global/default'
+
 import { ShowsItemWrapper } from './ShowsItem.styles'
 
 interface IShowsItem {

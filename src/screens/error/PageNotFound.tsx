@@ -1,6 +1,8 @@
 import type { FC } from 'react'
+
 import { Images } from '../../assets/images'
 import { HeadingTitleMd } from '../../styles/global/default'
+
 import { PageNotFoundWrapper } from './PageNotFound.styles'
 
 export const PageNotFound: FC = () => {

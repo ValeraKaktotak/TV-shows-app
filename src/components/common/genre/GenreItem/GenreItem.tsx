@@ -2,8 +2,8 @@ import type { FC } from 'react'
 import { Link } from 'react-router-dom'
 
 import { Icons } from '../../../../assets/icons'
-
 import routeConstants from '../../../../constant/routeConstants'
+
 import { GenreItemWrapper } from './GenreItem.styles'
 
 interface GenreItemInterface {

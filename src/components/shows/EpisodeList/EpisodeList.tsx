@@ -1,5 +1,7 @@
 import type { FC } from 'react'
+
 import { EpisodeItem } from '../EpisodeItem/EpisodeItem'
+
 import { EpisodeListWrapper } from './EpisodeList.styles'
 
 interface IEpisodeList {

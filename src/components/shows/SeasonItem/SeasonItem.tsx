@@ -1,9 +1,11 @@
-import { useState, type FC } from 'react'
+import { type FC,useState } from 'react'
 import { useSelector } from 'react-redux'
+
 import { Icons } from '../../../assets/icons'
 import { selectShowEpisodes } from '../../../redux/selectors/showsSelector'
 import { HeadingTitleMd, Text } from '../../../styles/global/default'
 import { EpisodeList } from '../EpisodeList/EpisodeList'
+
 import { SeasonItemWrapper } from './SeasonItem.styles'
 
 interface ISeasonItem {

@@ -1,4 +1,5 @@
-import { useEffect, type FC } from 'react'
+import { type FC,useEffect } from 'react'
+
 import { SearchBar } from '../../components'
 import { scrollToTop } from '../../utilities/scrollToTop'
 

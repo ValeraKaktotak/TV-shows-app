@@ -1,5 +1,6 @@
-import { SyntheticEvent, useRef, useState, type FC } from 'react'
+import { type FC,SyntheticEvent, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
+
 import { Icons } from '../../../assets/icons'
 import { Images } from '../../../assets/images'
 import { selectSearchResults } from '../../../redux/selectors/showsSelector'
@@ -10,6 +11,7 @@ import {
 import { useAppDispatch } from '../../../redux/store'
 import { NotDataFound } from '../../common/NotDataFound/NotDataFound'
 import { SearchList } from '../SearchList/SearchList'
+
 import { SearchBarWrapper } from './SearchBar.styles'
 
 export const SearchBar: FC = () => {

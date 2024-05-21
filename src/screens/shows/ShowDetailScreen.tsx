@@ -1,6 +1,7 @@
-import { useEffect, type FC } from 'react'
+import { type FC,useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+
 import {
   ErrorMessage,
   FreeTrial,
@@ -14,6 +15,7 @@ import { fetchSingleShow } from '../../redux/slices/showsSlice'
 import { RootState, useAppDispatch } from '../../redux/store'
 import { Container } from '../../styles/global/default'
 import { scrollToTop } from '../../utilities/scrollToTop'
+
 import { ShowDetailScreenWrapper } from './ShowDetailScreen.styles'
 
 export const ShowDetailScreen: FC = () => {

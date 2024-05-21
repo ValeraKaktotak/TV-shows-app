@@ -1,6 +1,7 @@
-import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-
 import type { AxiosError } from 'axios'
+
+import { createAsyncThunk, createSlice,PayloadAction } from '@reduxjs/toolkit'
+
 import { GENRES_TYPES } from '../../constant/commonConstans'
 import { ERROR_TYPES } from '../../constant/errorConstants'
 import { showsService } from '../services/showsService'

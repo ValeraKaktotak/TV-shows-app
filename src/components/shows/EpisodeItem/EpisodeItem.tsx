@@ -1,6 +1,8 @@
 import type { FC } from 'react'
 import { Link } from 'react-router-dom'
+
 import { Images } from '../../../assets/images'
+
 import { EpisodeItemWrapper } from './EpisodeItem.styles'
 
 interface IEpisodeItem {

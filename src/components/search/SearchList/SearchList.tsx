@@ -1,5 +1,7 @@
 import type { FC } from 'react'
+
 import { ShowsList } from '../../common/shows/ShowsList/ShowsList'
+
 import { SearchListWrapper } from './SearchList.styles'
 
 interface ISearchList {

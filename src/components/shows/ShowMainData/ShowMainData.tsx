@@ -1,9 +1,11 @@
 import type { FC } from 'react'
 import { useSelector } from 'react-redux'
+
 import { selectShowDescription } from '../../../redux/selectors/showsSelector'
 import { Paragraph } from '../../../styles/global/default'
 import { SeasonList } from '../SeasonList/SeasonList'
 import { ShowCast } from '../ShowCast/ShowCast'
+
 import { ShowMainDataWrapper } from './ShowMainData.styles'
 
 export const ShowMainData: FC = () => {

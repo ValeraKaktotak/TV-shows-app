@@ -1,6 +1,7 @@
 import type { FC } from 'react'
 import { FiExternalLink } from 'react-icons/fi'
 import { MdLanguage } from 'react-icons/md'
+
 import { Icons } from '../../../../assets/icons'
 import { BaseLinkPrimary } from '../../../../styles/components/Button'
 import {
@@ -8,6 +9,7 @@ import {
   HeadingTitle,
   Paragraph
 } from '../../../../styles/global/default'
+
 import { ShowsBannerWrapper } from './ShowsBanner.styles'
 
 interface IShowsBanner {

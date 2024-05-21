@@ -1,7 +1,6 @@
 import type { FC } from 'react'
 import Slider from 'react-slick'
-import 'slick-carousel/slick/slick-theme.css'
-import 'slick-carousel/slick/slick.css'
+
 import { SHOWS_TYPES } from '../../../../constant/showsConstants'
 import { Container } from '../../../../styles/global/default'
 import { SectionTitle } from '../../SectionTitle/SectionTitle'
@@ -9,7 +8,11 @@ import { CustomNextArrow } from '../../slider/CustomNextArrow'
 import { CustomPrevArrow } from '../../slider/CustomPrevArrow'
 import { SliderWrapper } from '../../slider/Slider.styles'
 import { ShowsItem } from '../ShowsItem/ShowsItem'
+
 import { ShowsSliderWrapper } from './ShowsSlider.styles'
+
+import 'slick-carousel/slick/slick-theme.css'
+import 'slick-carousel/slick/slick.css'
 
 interface IShowsSlider {
   sliderType: SHOWS_TYPES

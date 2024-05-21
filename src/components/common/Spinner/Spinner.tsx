@@ -1,4 +1,5 @@
 import type { FC } from 'react'
+
 import { SpinnerWrapper } from './Spinner.styles'
 
 export const Spinner: FC = () => {

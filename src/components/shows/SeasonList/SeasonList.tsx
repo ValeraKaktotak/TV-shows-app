@@ -1,8 +1,10 @@
 import type { FC } from 'react'
 import { useSelector } from 'react-redux'
+
 import { selectShowSeasons } from '../../../redux/selectors/showsSelector'
 import { HeadingTitleMd } from '../../../styles/global/default'
 import { SeasonItem } from '../SeasonItem/SeasonItem'
+
 import { SeasonListWrapper } from './SeasonList.styles'
 
 export const SeasonList: FC = () => {

@@ -1,9 +1,11 @@
-import { useState, type FC } from 'react'
+import { type FC,useState } from 'react'
+
 import { Icons } from '../../../../assets/icons'
 import { DEFAULT_SHOWS } from '../../../../constant/showsConstants'
 import { Container } from '../../../../styles/global/default'
 import { SectionTitle } from '../../SectionTitle/SectionTitle'
 import { ShowsItem } from '../ShowsItem/ShowsItem'
+
 import { PaginationWrapper, ShowsListWrapper } from './ShowsList.styles'
 
 interface IShowsList {
