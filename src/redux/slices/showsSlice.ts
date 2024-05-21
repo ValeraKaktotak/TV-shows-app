@@ -1,6 +1,7 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 import type { AxiosError } from 'axios'
+import { GENRES_TYPES } from '../../constant/commonConstans'
 import { ERROR_TYPES } from '../../constant/errorConstants'
 import { showsService } from '../services/showsService'
 
@@ -9,6 +10,45 @@ export const fetchAllShows = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       return await showsService.fetchAllShows()
+    } catch (err) {
+      const error = err as AxiosError<SHOWS_SLICE_ERROR_Interface>
+
+      if (error.response) {
+        const { status } = error.response
+        let code = null
+        if (status === 404) {
+          code = ERROR_TYPES.ERR_404
+        } else if (status === 429) {
+          code = ERROR_TYPES.ERR_429
+        }
+
+        return thunkAPI.rejectWithValue({
+          code,
+          message: 'Response Error'
+        })
+      } else if (error.request) {
+        return thunkAPI.rejectWithValue({
+          code: error.code,
+          message: 'Network Error'
+        })
+      }
+
+      return thunkAPI.rejectWithValue({
+        code: 'ERR_GENERIC',
+        message: 'Error'
+      })
+    }
+  }
+)
+
+export const fetchAllShowsByGenre = createAsyncThunk(
+  'shows/fetch/sortByGenre',
+  async (genre: GENRES_TYPES, thunkAPI) => {
+    try {
+      const res = await showsService.fetchAllShows()
+      thunkAPI.dispatch(showSlice.actions.setData(res))
+      thunkAPI.dispatch(sortedByGenre(genre))
+      return res
     } catch (err) {
       const error = err as AxiosError<SHOWS_SLICE_ERROR_Interface>
 
@@ -115,6 +155,7 @@ export const fetchSingleShow = createAsyncThunk(
 
 const initialState: SHOWS_SLICE_STATE_Interface = {
   shows: [],
+  sortedByGenreShows: [],
   searchResults: [],
   singleShow: null,
   isLoading: {
@@ -144,6 +185,15 @@ const showSlice = createSlice({
     },
     resetSingleShow: (state) => {
       state.singleShow = null
+    },
+    setData: (state, action: PayloadAction<ShowsData_Interface[]>) => {
+      state.shows = action.payload
+    },
+    sortedByGenre: (state, action: PayloadAction<GENRES_TYPES>) => {
+      const result = state.shows.filter((show) =>
+        show.genres.some((item) => item === action.payload)
+      )
+      state.shows = result
     }
   },
   extraReducers(builder) {
@@ -160,6 +210,35 @@ const showSlice = createSlice({
         state.isError.fetchAllShows = false
       })
       .addCase(fetchAllShows.rejected, (state, action) => {
+        state.isLoading.fetchAllShows = false
+        state.isSuccess.fetchAllShows = false
+        state.isError.fetchAllShows = true
+        //state.error = action.payload
+        if (
+          typeof action.payload === 'object' &&
+          action.payload !== null &&
+          'code' in action.payload &&
+          'message' in action.payload
+        ) {
+          state.error = action.payload as SHOWS_SLICE_ERROR_Interface
+        } else {
+          state.error = {
+            code: 'ERR_UNKNOWN',
+            message: 'Unknown error occurred'
+          }
+        }
+      })
+      .addCase(fetchAllShowsByGenre.pending, (state) => {
+        state.isLoading.fetchAllShows = true
+        state.isSuccess.fetchAllShows = false
+        state.isError.fetchAllShows = false
+      })
+      .addCase(fetchAllShowsByGenre.fulfilled, (state) => {
+        state.isLoading.fetchAllShows = false
+        state.isSuccess.fetchAllShows = true
+        state.isError.fetchAllShows = false
+      })
+      .addCase(fetchAllShowsByGenre.rejected, (state, action) => {
         state.isLoading.fetchAllShows = false
         state.isSuccess.fetchAllShows = false
         state.isError.fetchAllShows = true
@@ -241,5 +320,6 @@ const showSlice = createSlice({
   }
 })
 
-export const { resetSearchResult, resetSingleShow } = showSlice.actions
+export const { resetSearchResult, resetSingleShow, sortedByGenre } =
+  showSlice.actions
 export default showSlice.reducer

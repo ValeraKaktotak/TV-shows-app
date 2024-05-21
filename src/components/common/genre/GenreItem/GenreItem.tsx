@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 import { Icons } from '../../../../assets/icons'
 
+import routeConstants from '../../../../constant/routeConstants'
 import { GenreItemWrapper } from './GenreItem.styles'
 
 interface GenreItemInterface {
@@ -20,7 +21,10 @@ export const GenreItem: FC<GenreItemInterface> = ({ data }) => {
         </div>
         <div className='item-body flex items-center justify-between'>
           <div className='item-title font-semibold'>{name}</div>
-          <Link to='/' className='item-arrow-link'>
+          <Link
+            to={routeConstants.SHOWS + '/' + name}
+            className='item-arrow-link'
+          >
             <img src={Icons.ArrowRight} alt='Arrow right' />
           </Link>
         </div>

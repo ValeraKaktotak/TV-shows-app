@@ -1,5 +1,6 @@
 import { useEffect, type FC } from 'react'
 import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
 import {
   ErrorMessage,
   FreeTrial,
@@ -8,17 +9,24 @@ import {
   ShowsSlider,
   Spinner
 } from '../../components'
+import { GENRES_TYPES } from '../../constant/commonConstans'
+import { GENRES } from '../../constant/mockData'
 import { SHOWS_TYPES } from '../../constant/showsConstants'
 import {
   selectShows,
   selectSortedHighRatedShows,
   selectSortedNewShows
 } from '../../redux/selectors/showsSelector'
-import { fetchAllShows } from '../../redux/slices/showsSlice'
+import {
+  fetchAllShows,
+  fetchAllShowsByGenre
+} from '../../redux/slices/showsSlice'
 import { RootState, useAppDispatch } from '../../redux/store'
 import { scrollToTop } from '../../utilities/scrollToTop'
 
 export const ShowsScreen: FC = () => {
+  const { genre } = useParams()
+  const isGenre = GENRES.some((item) => item.name === genre)
   const dispatch = useAppDispatch()
 
   const allShowsData = useSelector(selectShows)
@@ -34,8 +42,10 @@ export const ShowsScreen: FC = () => {
   const error = useSelector((state: RootState) => state.shows.error)
 
   useEffect(() => {
-    dispatch(fetchAllShows())
-  }, [dispatch])
+    if (isGenre) {
+      dispatch(fetchAllShowsByGenre(genre as GENRES_TYPES))
+    } else dispatch(fetchAllShows())
+  }, [dispatch, genre, isGenre])
 
   useEffect(() => scrollToTop(), [])
 

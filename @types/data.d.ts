@@ -39,6 +39,7 @@ type SHOWS_SLICE_ERROR_Interface = {
 
 interface SHOWS_SLICE_STATE_Interface {
   shows: ShowsData_Interface[]
+  sortedByGenreShows: ShowsData_Interface[]
   searchResults: SearchShowsData_Interface[]
   singleShow: SingleShowData_Interface | null
   isLoading: {
