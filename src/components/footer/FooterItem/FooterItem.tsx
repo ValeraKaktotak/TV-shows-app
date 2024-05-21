@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 import { Text } from '../../../styles/global/default'
 import { FooterItemWrapper } from '../Footer.styles'
@@ -20,9 +20,9 @@ export const FooterItem: FC<FooterItemInterface> = ({ data }) => {
         <ul className='item-text-links'>
           {data.links.map((link, index) => (
             <li key={index}>
-              <Link to={link.link_url}>
+              <NavLink to={link.link_url}>
                 <Text className='capitalize font-medium'>{link.link_name}</Text>
-              </Link>
+              </NavLink>
             </li>
           ))}
         </ul>
@@ -30,12 +30,12 @@ export const FooterItem: FC<FooterItemInterface> = ({ data }) => {
         <ul className='item-icons-links flex item-center'>
           {data.links.map((link, index) => (
             <li key={index}>
-              <Link
+              <NavLink
                 to={link.link_url}
                 className='item-icon-link bg-black-10 inline-flex items-center justify-center'
               >
                 <img src={link.link_icon} alt='Icon' />
-              </Link>
+              </NavLink>
             </li>
           ))}
         </ul>

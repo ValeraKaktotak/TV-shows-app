@@ -1,11 +1,11 @@
 import type { FC } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 import { FOOTER_LINKS } from '../../constant/mockData'
 import { Container, Paragraph, Text } from '../../styles/global/default'
 
-import { FooterItem } from './FooterItem/FooterItem'
 import { FooterWrapper } from './Footer.styles'
+import { FooterItem } from './FooterItem/FooterItem'
 
 export const Footer: FC = () => {
   const currentYear = new Date()
@@ -25,19 +25,19 @@ export const Footer: FC = () => {
           </Paragraph>
           <ul className='flex items-center flex-wrap bottom-links'>
             <li>
-              <Link to='/' className='bottom-link'>
+              <NavLink to='/' className='bottom-link'>
                 <Text>Terms of use</Text>
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to='/' className='bottom-link'>
+              <NavLink to='/' className='bottom-link'>
                 <Text>Privacy Policy</Text>
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to='/' className='bottom-link'>
+              <NavLink to='/' className='bottom-link'>
                 <Text>Cookie Policy</Text>
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>

@@ -1,6 +1,6 @@
-import { type FC,useEffect, useRef } from 'react'
+import { useEffect, useRef, type FC } from 'react'
 import { useSelector } from 'react-redux'
-import { Link, useLocation } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 import { Icons } from '../../assets/icons'
 import { Images } from '../../assets/images'
@@ -92,7 +92,7 @@ export const Header: FC = () => {
             </button>
             <ul className={'nav-list flex items-center justify-center'}>
               <li className={'nav-item'}>
-                <Link
+                <NavLink
                   onClick={handleNavLinkClick}
                   to={routeConstants.HOME}
                   className={
@@ -101,10 +101,10 @@ export const Header: FC = () => {
                   }
                 >
                   Home
-                </Link>
+                </NavLink>
               </li>
               <li className={'nav-item'}>
-                <Link
+                <NavLink
                   onClick={handleNavLinkClick}
                   to={routeConstants.SHOWS}
                   className={
@@ -113,10 +113,10 @@ export const Header: FC = () => {
                   }
                 >
                   Shows
-                </Link>
+                </NavLink>
               </li>
               <li className={'nav-item'}>
-                <Link
+                <NavLink
                   onClick={handleNavLinkClick}
                   to='/support'
                   className={
@@ -125,10 +125,10 @@ export const Header: FC = () => {
                   }
                 >
                   Support
-                </Link>
+                </NavLink>
               </li>
               <li className={'nav-item'}>
-                <Link
+                <NavLink
                   onClick={handleNavLinkClick}
                   to='/subscription'
                   className={
@@ -137,23 +137,23 @@ export const Header: FC = () => {
                   }
                 >
                   Subscription
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </NavWrapper>
           <HeaderIconsWrapper className={'flex items-center'}>
-            <Link
+            <NavLink
               to={routeConstants.SEARCH}
               className={'icon-link flex items-center justify-center'}
             >
               <img src={Icons.Search} alt='Search Icon' />
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to='/'
               className={'icon-link flex items-center justify-center'}
             >
               <img src={Icons.Bell} alt='Bell Icon' />
-            </Link>
+            </NavLink>
             <button
               type='button'
               className={

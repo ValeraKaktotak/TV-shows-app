@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 import { Icons } from '../../../../assets/icons'
 import routeConstants from '../../../../constant/routeConstants'
@@ -21,12 +21,12 @@ export const GenreItem: FC<GenreItemInterface> = ({ data }) => {
         </div>
         <div className='item-body flex items-center justify-between'>
           <div className='item-title font-semibold'>{name}</div>
-          <Link
+          <NavLink
             to={routeConstants.SHOWS + '/genre/' + name}
             className='item-arrow-link'
           >
             <img src={Icons.ArrowRight} alt='Arrow right' />
-          </Link>
+          </NavLink>
         </div>
       </div>
     </GenreItemWrapper>

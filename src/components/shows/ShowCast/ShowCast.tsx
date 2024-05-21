@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import Slider from 'react-slick'
 
 import { selectShowCast } from '../../../redux/selectors/showsSelector'
@@ -37,7 +37,7 @@ export const ShowCast: FC = () => {
           >
             {castData?.map((cast) => (
               <div className='show-cast-item' key={cast.person.id}>
-                <Link
+                <NavLink
                   to={cast?.person?.url || '#'}
                   className='item-content'
                   target='_blank'
@@ -47,7 +47,7 @@ export const ShowCast: FC = () => {
                     alt=''
                     className='object-fit-cover'
                   />
-                </Link>
+                </NavLink>
               </div>
             ))}
           </Slider>

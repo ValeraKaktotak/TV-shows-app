@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 import { Images } from '../../../assets/images'
 
@@ -19,13 +19,13 @@ export const EpisodeItem: FC<IEpisodeItem> = ({ episodeData }) => {
           : episodeData.number}
       </div>
       <div className='episode-full grid'>
-        <Link to={episodeData?.url} target='_blank' className='episode-img'>
+        <NavLink to={episodeData?.url} target='_blank' className='episode-img'>
           <img
             src={episodeData?.image?.medium || Images.NoImage}
             alt='Episode image'
             className='object-fit-cover'
           />
-        </Link>
+        </NavLink>
         <div className='episode-body'>
           <div className='episode-head'>
             <h4 className='episode-title text-xl'>{episodeData?.name}</h4>

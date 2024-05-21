@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 
 import { theme } from '../theme/theme'
@@ -65,7 +65,7 @@ const BaseButton = styled.button`
   ${commonButtonStyles};
 `
 
-const BaseLink = styled(Link)`
+const BaseLink = styled(NavLink)`
   ${commonButtonStyles}
 `
 
