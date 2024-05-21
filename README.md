@@ -1,16 +1,15 @@
 # React + TypeScript + Vite + Redux Toolkit + styled-components
 
-Getting started
-npm
+##Getting started
+#npm
+-npm install
+-npm run dev
 
-npm install
-npm run dev
-yarn
+#yarn
+-yarn install
+-yarn dev
 
-yarn install
-yarn dev
-pnpm
-
-pnpm install
-pnpm dev
+#pnpm
+-pnpm install
+-pnpm dev
 
