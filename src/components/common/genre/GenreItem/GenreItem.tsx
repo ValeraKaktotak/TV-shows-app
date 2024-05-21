@@ -22,7 +22,7 @@ export const GenreItem: FC<GenreItemInterface> = ({ data }) => {
         <div className='item-body flex items-center justify-between'>
           <div className='item-title font-semibold'>{name}</div>
           <Link
-            to={routeConstants.SHOWS + '/' + name}
+            to={routeConstants.SHOWS + '/genre/' + name}
             className='item-arrow-link'
           >
             <img src={Icons.ArrowRight} alt='Arrow right' />

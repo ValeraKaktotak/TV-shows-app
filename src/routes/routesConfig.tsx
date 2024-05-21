@@ -22,12 +22,12 @@ export const routes = [
         element: <ShowsScreen />
       },
       {
-        path: `${routeConstants.SHOWS}/:genre`,
-        element: <ShowsScreen />
-      },
-      {
         path: `${routeConstants.SHOWS}/:id`,
         element: <ShowDetailScreen />
+      },
+      {
+        path: `${routeConstants.SHOWS}/genre/:genre`,
+        element: <ShowsScreen />
       },
       {
         path: routeConstants.SEARCH,
