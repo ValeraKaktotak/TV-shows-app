@@ -43,6 +43,9 @@ export const PaginationWrapper = styled.div`
 `
 
 export const ShowsListWrapper = styled.div`
+  .shows-list-sort-btn {
+    margin: 0 40px 40px;
+  }
   .shows-list {
     grid-template-columns: repeat(5, 1fr);
     row-gap: 20px;

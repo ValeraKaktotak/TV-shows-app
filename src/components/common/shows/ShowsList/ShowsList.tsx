@@ -1,4 +1,4 @@
-import { type FC,useState } from 'react'
+import { useState, type FC } from 'react'
 
 import { Icons } from '../../../../assets/icons'
 import { DEFAULT_SHOWS } from '../../../../constant/showsConstants'
@@ -39,6 +39,9 @@ export const ShowsList: FC<IShowsList> = ({ showsData, showsTitle }) => {
   return (
     <ShowsListWrapper>
       <SectionTitle title={showsTitle} />
+      {/* <BaseButtonPrimary className='shows-list-sort-btn'>
+        Sort Asc/Desc
+      </BaseButtonPrimary> */}
       <Container>
         <div className='shows-list grid'>
           {currentShows?.map((show) => (

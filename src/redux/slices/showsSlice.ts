@@ -1,6 +1,6 @@
 import type { AxiosError } from 'axios'
 
-import { createAsyncThunk, createSlice,PayloadAction } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { GENRES_TYPES } from '../../constant/commonConstans'
 import { ERROR_TYPES } from '../../constant/errorConstants'
@@ -156,7 +156,6 @@ export const fetchSingleShow = createAsyncThunk(
 
 const initialState: SHOWS_SLICE_STATE_Interface = {
   shows: [],
-  sortedByGenreShows: [],
   searchResults: [],
   singleShow: null,
   isLoading: {
