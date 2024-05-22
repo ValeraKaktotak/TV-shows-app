@@ -17,17 +17,17 @@ import { persistor, store } from './redux/store'
 // )
 
 // Найдите элемент с id 'root'
-const container = document.getElementById('root') as HTMLElement
+const container = document.getElementById('root')
 
-// Создайте корневой рендерер
-const root = ReactDOM.createRoot(container)
-
-root.render(
-  <BrowserRouter>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <App />
-      </PersistGate>
-    </Provider>
-  </BrowserRouter>
-)
+if (container) {
+  const root = ReactDOM.createRoot(container)
+  root.render(
+    <BrowserRouter>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <App />
+        </PersistGate>
+      </Provider>
+    </BrowserRouter>
+  )
+}
