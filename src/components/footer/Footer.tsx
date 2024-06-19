@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom'
 import { FOOTER_LINKS } from '../../constant/mockData'
 import { Container, Paragraph, Text } from '../../styles/global/default'
 
-import { FooterWrapper } from './Footer.styles'
 import { FooterItem } from './FooterItem/FooterItem'
+import { FooterWrapper } from './Footer.styles'
 
 export const Footer: FC = () => {
   const currentYear = new Date()

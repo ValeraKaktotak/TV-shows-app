@@ -1,4 +1,4 @@
-import { useEffect, type FC } from 'react'
+import { type FC,useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 

@@ -1,29 +1,16 @@
-import { Route, Routes } from 'react-router-dom'
+import { FC } from 'react'
+import { Outlet } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 
-import { routes } from './routes/routesConfig'
 import { GlobalStyles } from './styles/global/GlobalStyles'
 import { theme } from './styles/theme/theme'
 
-export const App = () => {
+export const App: FC = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <Routes>
-          {routes.map((route, index) => (
-            <Route key={index} path={route.path} element={route.element}>
-              {route.children &&
-                route.children.map((childRoute, childIndex) => (
-                  <Route
-                    key={childIndex}
-                    path={childRoute.path}
-                    element={childRoute.element}
-                  />
-                ))}
-            </Route>
-          ))}
-        </Routes>
+        <Outlet />
       </ThemeProvider>
     </>
   )

@@ -1,4 +1,4 @@
-import { useState, type FC } from 'react'
+import { type FC,useState } from 'react'
 
 import { Icons } from '../../../../assets/icons'
 import { DEFAULT_SHOWS } from '../../../../constant/showsConstants'

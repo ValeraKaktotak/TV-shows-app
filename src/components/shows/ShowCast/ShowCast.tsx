@@ -35,7 +35,7 @@ export const ShowCast: FC = () => {
             nextArrow={<CustomNextArrow />}
             prevArrow={<CustomPrevArrow />}
           >
-            {castData?.map((cast) => (
+            {castData?.map((cast: Cast) => (
               <div className='show-cast-item' key={cast.person.id}>
                 <NavLink
                   to={cast?.person?.url || '#'}
