@@ -6,6 +6,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { ThemeProvider } from 'styled-components'
 import { persistor, store } from './redux/store'
 
+import React from 'react'
 import { App } from './App'
 import { BaseLayout } from './components'
 import routeConstants from './constant/routeConstants'
@@ -26,7 +27,6 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: '/',
         element: <BaseLayout />,
         children: [
           {
@@ -60,11 +60,13 @@ const router = createBrowserRouter([
 ])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
-      <ThemeProvider theme={theme}>
-        <RouterProvider router={router} />
-      </ThemeProvider>
-    </PersistGate>
-  </Provider>
+  <React.StrictMode>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <ThemeProvider theme={theme}>
+          <RouterProvider router={router} />
+        </ThemeProvider>
+      </PersistGate>
+    </Provider>
+  </React.StrictMode>
 )
