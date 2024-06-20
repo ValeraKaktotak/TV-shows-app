@@ -8,10 +8,8 @@ import { GlobalStyles } from './styles/global/GlobalStyles'
 export const App: FC = () => {
   return (
     <>
-      {/* <ThemeProvider theme={theme}> */}
       <GlobalStyles />
       <Outlet />
-      {/* </ThemeProvider> */}
     </>
   )
 }
